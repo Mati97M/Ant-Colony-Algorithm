@@ -5,7 +5,7 @@ Vertex* Ant::target{};
 
 void Ant::put_feromone(double f)
 {
-	for (auto e : visited_E) e->add_feromone(1.0/path_length);
+	for (auto &e : visited_E) e->add_feromone(1.0/path_length);
 }
 
 void Ant::move(const std::vector<Edge*> & edges)	//inaczej zrob - niech  mrowka przemieszcza sie po wierzcholkach, ne po krawedziach
@@ -26,15 +26,17 @@ void Ant::move(const std::vector<Edge*> & edges)	//inaczej zrob - niech  mrowka 
 
 void Ant::move_to_next_V(const std::vector<Edge*>& edges, const Vertexes_vector& Vertexes)
 {
-	//chose vertex to visit
+	//chose vertex to visit - creating candidates
 	auto it_V = Vertexes.begin();
-	while (std::find(visited_V.begin(), visited_V.end(), *it_V) != visited_V.end() ) //jesli znaleziono dany wierzch w wekt odwiedzonych, to przypatrujemy sie nast. wierzch.
+	while (it_V != Vertexes.end())
 	{
-		it_V++;
+		while (std::find(visited_V.begin(), visited_V.end(), *it_V) != visited_V.end()) //jesli znaleziono dany wierzch w wekt odwiedzonych, to przypatrujemy sie nast. wierzch.
+		{
+			it_V++;
+		}
+		candidates_V.push_back(*it_V);
 	}
-	if (it_V == Vertexes.end()) { std::cout << "No vertexes to visit!"; return; }
-
-
+	//dla kazdego z kandydatow ustalamy atrakcyjnosc sciezki. Te bez feromonow beda mialy losowane wartosci
 	//ruletka - wybor lub odrzucenie wierzcholka (krawedzi do wierzcholka)
 	///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	//wybor konkretnej krawedzi, mamy przeciez current_V oraz wierzcholek docelowy

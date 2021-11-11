@@ -10,6 +10,7 @@ class Ant
 	std::vector<Edge*> visited_E; //raczej niepotrzebne
 	Vertex* current_Vertex;
 	double path_length;
+	std::vector<Vertex*> candidates_V;
 	
 public:
 	Ant() :current_Vertex{ nullptr }, path_length{}{}
