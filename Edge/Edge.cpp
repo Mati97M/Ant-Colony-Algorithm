@@ -1,8 +1,8 @@
 #include "Edge.h"
 
-std::vector<Edge*> Edge::Edges{};
+std::vector<Edge*> Edge::Edges{};		//moze niech to biedzie mapa <string, Edge*>  np edges["AI"] = adres krawedzi
 
-void Edge::create_Edges(const Verticles_vector& vv)
+void Edge::create_Edges(const Vertexes_vector& vv)
 {
 	auto it_begin = vv.begin();
 	auto it_current = vv.end();
@@ -13,7 +13,7 @@ void Edge::create_Edges(const Verticles_vector& vv)
 	}
 }
 
-Edge::Edge(Verticle* current, Verticle* previous) :feromones{}, begin{ previous }, end{ current }
+Edge::Edge(Vertex* current, Vertex* previous) :feromones{}, begin{ previous }, end{ current }
 {
 	//point begin
 	double x_b = begin->get_x();

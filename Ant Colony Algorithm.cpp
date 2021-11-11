@@ -2,14 +2,14 @@
 //
 
 #include <iostream>
-#include"Verticle/Verticle.h"
+#include"Vertex/Vertex.h"
 #include "Edge/Edge.h"
 #include "Ant/Ant.h"
 #include <cstdlib>
 #include <ctime>
 
-Verticles_vector best_solutionV;
-Verticles_vector best_solutionE;
+Vertexes_vector best_solutionV;
+Vertexes_vector best_solutionE;
 //parameters
 int ants_num{ 4 };
 
@@ -20,28 +20,28 @@ int iteration_num{ 50 };
 int main()
 {
     srand(time(NULL));
-    //prepearing verticles
-    auto A = new Verticle("A", 10, 11);
-    auto B = new Verticle("B", 20, 22);
-    auto C = new Verticle("C", 30, 33);
-    auto D = new Verticle("D", 40, 44);
-    auto E = new Verticle("E", 50, 55);
-    auto F = new Verticle("F", 60, 66);
-    auto G = new Verticle("G", 70, 77);
-    auto H = new Verticle("H", 80, 88);
-    auto I = new Verticle("I", 90, 99);
-    auto J = new Verticle("J", 100, 11);
-    auto K = new Verticle("K", 15, 51);
-    auto L = new Verticle("L", 25, 52);
-    auto M = new Verticle("M", 75, 75);
-    auto N = new Verticle("N", 18, 81);
-    auto O = new Verticle("O", 47, 40);
-    auto U = new Verticle("U", 80, 61);
-    auto P = new Verticle("P", 10, 0);
-    auto R = new Verticle("R", 20, 80);
+    //prepearing Vertexes
+    auto A = new Vertex("A", 10, 11);
+    auto B = new Vertex("B", 20, 22);
+    auto C = new Vertex("C", 30, 33);
+    auto D = new Vertex("D", 40, 44);
+    auto E = new Vertex("E", 50, 55);
+    auto F = new Vertex("F", 60, 66);
+    auto G = new Vertex("G", 70, 77);
+    auto H = new Vertex("H", 80, 88);
+    auto I = new Vertex("I", 90, 99);
+    auto J = new Vertex("J", 100, 11);
+    auto K = new Vertex("K", 15, 51);
+    auto L = new Vertex("L", 25, 52);
+    auto M = new Vertex("M", 75, 75);
+    auto N = new Vertex("N", 18, 81);
+    auto O = new Vertex("O", 47, 40);
+    auto U = new Vertex("U", 80, 61);
+    auto P = new Vertex("P", 10, 0);
+    auto R = new Vertex("R", 20, 80);
 
     // z A do I
-    Ant::target =  I;
+    Ant::target = I;
     //////////////////////////////////////////////Ant colony Algorithm
     while (iteration_num--)
     {

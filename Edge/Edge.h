@@ -1,25 +1,25 @@
 #ifndef EDGE_H
 #define EDGE
-#include "../Verticle/Verticle.h"
+#include "../Vertex/Vertex.h"
 #include <string>
 
 //using Edges_vector = std::vector<Edge*>;
 class Edge
 {
-	friend class Verticle;
+	friend class Vertex;
 	friend class Ant;
 
 	double length;
 	double feromones;
-	Verticle* begin;
-	Verticle* end;
+	Vertex* begin;
+	Vertex* end;
 public:
 	static std::vector<Edge*> Edges;
 
 private:
-	static void create_Edges(const Verticles_vector& vv);
+	static void create_Edges(const Vertexes_vector& vv);
 
-	Edge(Verticle* current, Verticle* previous);
+	Edge(Vertex* current, Vertex* previous);
 public:
 	void add_feromone(double f) { feromones += f; }
 	static void reduce_feromoneG(double f);

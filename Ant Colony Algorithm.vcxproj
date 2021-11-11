@@ -142,12 +142,12 @@
     <ClCompile Include="Ant Colony Algorithm.cpp" />
     <ClCompile Include="Ant\Ant.cpp" />
     <ClCompile Include="Edge\Edge.cpp" />
-    <ClCompile Include="Verticle\Verticle.cpp" />
+    <ClCompile Include="Vertex\Vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ant\Ant.h" />
     <ClInclude Include="Edge\Edge.h" />
-    <ClInclude Include="Verticle\Verticle.h" />
+    <ClInclude Include="Vertex\Vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

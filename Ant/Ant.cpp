@@ -1,6 +1,7 @@
 #include "Ant.h"
+#include <iostream>
 
-Verticle* Ant::target{};
+Vertex* Ant::target{};
 
 void Ant::put_feromone(double f)
 {
@@ -21,4 +22,18 @@ void Ant::move(const std::vector<Edge*> & edges)	//inaczej zrob - niech  mrowka 
 	//found edge wasn`t visited, so ant goes there
 	
 	//funkcja celu? w kazdym razie teraz  ocena edges[n] , jej atrakcyjnosci, funkcja losujaca prog przebicia
+}
+
+void Ant::move_to_next_V(const std::vector<Edge*>& edges, const Vertexes_vector& Vertexes)
+{
+	auto it_V = Vertexes.begin();
+	while (std::find(visited_V.begin(), visited_V.end(), *it_V) != visited_V.end() ) //jesli znaleziono dany wierzch w wekt odwiedzonych, to przypatrujemy sie nast. wierzch.
+	{
+		it_V++;
+		if (it_V == Vertexes.end()) { std::cout << "End of vertexes to visit!"; return; }
+	}
+	//ruletka - wybor lub odrzucenie wierzcholka (krawedzi do wierzcholka)
+	///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	//wybor konkretnej krawedzi, mamy przeciez current_V oraz wierzcholek docelowy
+	// zobacz, edge.cpp map
 }
