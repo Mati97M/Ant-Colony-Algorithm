@@ -1,6 +1,6 @@
 #include "Edge.h"
 
-std::vector<Edge*> Edge::Edges{};		//moze niech to biedzie mapa <string, Edge*>  np edges["AI"] = adres krawedzi
+Edges_map Edge::Edges{};		//moze niech to biedzie mapa <string, Edge*>  np edges["AI"] = adres krawedzi
 
 void Edge::create_Edges(const Vertexes_vector& vv)
 {
@@ -9,7 +9,9 @@ void Edge::create_Edges(const Vertexes_vector& vv)
 	while (it_current != it_begin)
 	{
 		auto e = new Edge(*vv.end(), *(--it_current));
-		Edges.push_back(e);
+		Edges[(*it_current)->get_name() + (*vv.end())->get_name()] = e;
+		//Edges[(*vv.end())->get_name() + (*it_current)->get_name()] = e;
+		//Edges.push_back(e);
 	}
 }
 
@@ -30,8 +32,9 @@ Edge::Edge(Vertex* current, Vertex* previous) :feromones{}, begin{ previous }, e
 
 void Edge::reduce_feromoneG(double f)
 {
-	for (auto& e : Edges)
+	for (auto & e : Edges)
 	{
-		e->feromones *= f;
+		e.second->reduce_feromone(f); 
 	}
+
 }

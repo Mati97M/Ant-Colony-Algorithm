@@ -7,7 +7,7 @@
 
 using Vertexes_vector = std::vector<Vertex*>;
 
-class Vertex	//trzeba tworzyc operatorem new
+class Vertex	//nalezy tworzyc operatorem new
 {
 	static Vertexes_vector Vertexes;	//klika - kazdy z kazdym
 	static int Vertexes_num;

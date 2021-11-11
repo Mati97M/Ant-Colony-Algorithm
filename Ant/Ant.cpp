@@ -26,12 +26,15 @@ void Ant::move(const std::vector<Edge*> & edges)	//inaczej zrob - niech  mrowka 
 
 void Ant::move_to_next_V(const std::vector<Edge*>& edges, const Vertexes_vector& Vertexes)
 {
+	//chose vertex to visit
 	auto it_V = Vertexes.begin();
 	while (std::find(visited_V.begin(), visited_V.end(), *it_V) != visited_V.end() ) //jesli znaleziono dany wierzch w wekt odwiedzonych, to przypatrujemy sie nast. wierzch.
 	{
 		it_V++;
-		if (it_V == Vertexes.end()) { std::cout << "End of vertexes to visit!"; return; }
 	}
+	if (it_V == Vertexes.end()) { std::cout << "No vertexes to visit!"; return; }
+
+
 	//ruletka - wybor lub odrzucenie wierzcholka (krawedzi do wierzcholka)
 	///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	//wybor konkretnej krawedzi, mamy przeciez current_V oraz wierzcholek docelowy

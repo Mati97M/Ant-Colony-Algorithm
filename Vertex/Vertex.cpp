@@ -1,5 +1,5 @@
 #include "Vertex.h"
 
-int Vertex::Vertexs_num{};
-Vertexs_vector Vertex::Vertexes{};
+int Vertex::Vertexes_num{};
+Vertexes_vector Vertex::Vertexes{};
 
