@@ -3,7 +3,8 @@
 
 #include <vector>
 #include "../Edge/Edge.h"
-class Vertex;
+#include "../Vertex/Vertex.h"
+
 class Ant
 {
 	Vertexes_vector visited_V;
@@ -16,10 +17,10 @@ class Ant
 public:
 	Ant() :current_Vertex{ nullptr }, path_length{}{}
 	void set_current_V(Vertex* v) { visited_V.push_back(current_Vertex = v); }
-	void put_feromone(double f);
+	void put_feromone();
 	double get_path_length() { return path_length; }
 	void move_to_next_V(const std::vector<Edge*>& edges, const Vertexes_vector& Vertexes);
-	void move(const std::vector<Edge*>& edges);
+	//void move(const std::vector<Edge*>& edges);
 	static Vertex* target;
 };
 #endif // !1

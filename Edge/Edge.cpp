@@ -1,21 +1,27 @@
 #include "Edge.h"
+#include <string>
 
 Edges_map Edge::Edges{};		//moze niech to biedzie mapa <string, Edge*>  np edges["AI"] = adres krawedzi
 
-void Edge::create_Edges(const Vertexes_vector& vv)
+//void Edge::create_Edges(const Vertexes_vector& vv)
+//{
+//	auto it_begin = vv.begin();
+//	auto it_current = vv.end();
+//	while (it_current != it_begin)
+//	{
+//		auto e = new Edge(*vv.end(), *(--it_current));
+//		//Edges[(*it_current)->get_name() + (*vv.end())->get_name()] = e;
+//		//Edges[(*vv.end())->get_name() + (*it_current)->get_name()] = e;
+//		//Edges.push_back(e);
+//	}
+//}
+
+void Edge::create_Edge(Vertex* v1, Vertex* v2) 
 {
-	auto it_begin = vv.begin();
-	auto it_current = vv.end();
-	while (it_current != it_begin)
-	{
-		auto e = new Edge(*vv.end(), *(--it_current));
-		Edges[(*it_current)->get_name() + (*vv.end())->get_name()] = e;
-		//Edges[(*vv.end())->get_name() + (*it_current)->get_name()] = e;
-		//Edges.push_back(e);
-	}
+			Edges[v1->get_name() + v2->get_name()] = new Edge(v1, v2);
 }
 
-Edge::Edge(Vertex* current, Vertex* previous) :feromones{}, begin{ previous }, end{ current }
+Edge::Edge(Vertex* v1, Vertex* v2) :feromones{}, begin{ v1 }, end{ v2 }
 {
 	//point begin
 	double x_b = begin->get_x();

@@ -21,27 +21,27 @@ int main()
 {
     srand(time(NULL));
     //prepearing Vertexes
-    auto A = new Vertex("A", 10, 11);
-    auto B = new Vertex("B", 20, 22);
-    auto C = new Vertex("C", 30, 33);
-    auto D = new Vertex("D", 40, 44);
-    auto E = new Vertex("E", 50, 55);
-    auto F = new Vertex("F", 60, 66);
-    auto G = new Vertex("G", 70, 77);
-    auto H = new Vertex("H", 80, 88);
-    auto I = new Vertex("I", 90, 99);
-    auto J = new Vertex("J", 100, 11);
-    auto K = new Vertex("K", 15, 51);
-    auto L = new Vertex("L", 25, 52);
-    auto M = new Vertex("M", 75, 75);
-    auto N = new Vertex("N", 18, 81);
-    auto O = new Vertex("O", 47, 40);
-    auto U = new Vertex("U", 80, 61);
+    auto A = new Vertex("A", 185, 245);
+    auto B = new Vertex("B", 35, 235);
+    auto C = new Vertex("C", 135, 215);
+    auto D = new Vertex("D", 205, 205);
+    auto E = new Vertex("E", 45, 195);
+    auto F = new Vertex("F", 155, 185);
+    auto G = new Vertex("G", 105, 155);
+    auto H = new Vertex("H", 185, 155);
+    auto I = new Vertex("I", 45, 125);
+    auto J = new Vertex("J", 175, 115);
+    auto K = new Vertex("K", 95, 105);
+    auto L = new Vertex("L", 225, 105);
+    auto M = new Vertex("M", 45, 65);
+    auto N = new Vertex("N", 125, 65);
+    auto O = new Vertex("O", 195, 45);
+   /* auto U = new Vertex("U", 80, 61);
     auto P = new Vertex("P", 10, 0);
-    auto R = new Vertex("R", 20, 80);
+    auto R = new Vertex("R", 20, 80);*/
 
-    // z A do I
-    Ant::target = I;
+    // z B do O
+    Ant::target = O;
     //////////////////////////////////////////////Ant colony Algorithm
     while (iteration_num--)
     {
@@ -51,10 +51,10 @@ int main()
         {
             ants.push_back(Ant());
         }
-        //putting ants on start - A
-        for (auto& ant : ants) { ant.set_current_V(A); }
+        //putting ants on start - B
+        for (auto& ant : ants) { ant.set_current_V(B); }
 
-        while (I->get_ants_num() != ants_num)
+        while (Ant::target->get_ants_num() != ants_num)
         {
             //each ant search finish & memorise, which nodes where visited
 
