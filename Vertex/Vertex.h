@@ -10,6 +10,9 @@ using Vertexes_vector = std::vector<Vertex*>;
 
 class Vertex	//nalezy tworzyc operatorem new
 {
+	friend class Ant;
+	friend class Edge;
+	Vertexes_vector neighbours;
 	static Vertexes_vector Vertexes;	
 	static int Vertexes_num;
 	std::string name;
@@ -19,7 +22,7 @@ class Vertex	//nalezy tworzyc operatorem new
 
 	public:
 	//static Vertex* target;
-	Vertex(std::string name, double x, double y) : name{ name },x{x},y{y},ants_num{0}
+		Vertex(std::string name, double x, double y) : name{ name }, x{ x }, y{ y }, ants_num{ 0 }, neighbours{}
 	{
 		Vertexes_num++;
 		Vertexes.push_back(this);

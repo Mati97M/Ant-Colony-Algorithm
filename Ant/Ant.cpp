@@ -28,27 +28,25 @@ void Ant::put_feromone()
 //	//funkcja celu? w kazdym razie teraz  ocena edges[n] , jej atrakcyjnosci, funkcja losujaca prog przebicia
 //}
 
-void Ant::move_to_next_V(const std::vector<Edge*>& edges, const Vertexes_vector& Vertexes)
+void Ant::move_to_next_V()
 {
+	//const Vertexes_vector& vertexes = Vertex::Vertexes;
 	if (current_Vertex != target)
 	{
 		//chose vertex to visit - creating candidates
-		auto it_V = Vertexes.begin();
-		while (it_V != Vertexes.end())
+		for (auto& n : current_Vertex->neighbours)
 		{
-			while (std::find(visited_V.begin(), visited_V.end(), *it_V) != visited_V.end()) //jesli znaleziono dany wierzch w wekt odwiedzonych, to przypatrujemy sie nast. wierzch.
+			if (std::find(visited_V.begin(), visited_V.end(), n) == visited_V.end())
 			{
-				it_V++;
+				candidates_V.push_back(n);
 			}
-			candidates_V.push_back(*it_V);
 		}
 		// finding matcihng edges
 		for (auto& v : candidates_V)
 		{
 			std::string temp_key = current_Vertex->get_name() + v->get_name();
 			std::string key = (Edge::Edges.find(temp_key) == Edge::Edges.end() ? temp_key = *temp_key.end() + *temp_key.begin() : temp_key);
-			//candidates_E.push_back(Edge::Edges[key]);
-			//candidates_E.push_back()
+			candidates_E.push_back(Edge::Edges[key]);
 		}
 		
 			//dla kazdego z kandydatow ustalamy atrakcyjnosc sciezki. Te bez feromonow beda mialy losowane wartosci

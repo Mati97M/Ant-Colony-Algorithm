@@ -147,6 +147,7 @@
   <ItemGroup>
     <ClInclude Include="Ant\Ant.h" />
     <ClInclude Include="Edge\Edge.h" />
+    <ClInclude Include="tools.h" />
     <ClInclude Include="Vertex\Vertex.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

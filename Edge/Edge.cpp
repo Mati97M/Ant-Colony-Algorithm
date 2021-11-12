@@ -19,6 +19,8 @@ Edges_map Edge::Edges{};		//moze niech to biedzie mapa <string, Edge*>  np edges
 void Edge::create_Edge(Vertex* v1, Vertex* v2) 
 {
 			Edges[v1->get_name() + v2->get_name()] = new Edge(v1, v2);
+			v1->neighbours.push_back(v2);
+			v2->neighbours.push_back(v1);
 }
 
 Edge::Edge(Vertex* v1, Vertex* v2) :feromones{}, begin{ v1 }, end{ v2 }

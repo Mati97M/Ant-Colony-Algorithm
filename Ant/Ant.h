@@ -19,7 +19,7 @@ public:
 	void set_current_V(Vertex* v) { visited_V.push_back(current_Vertex = v); }
 	void put_feromone();
 	double get_path_length() { return path_length; }
-	void move_to_next_V(const std::vector<Edge*>& edges, const Vertexes_vector& Vertexes);
+	void move_to_next_V();
 	//void move(const std::vector<Edge*>& edges);
 	static Vertex* target;
 };

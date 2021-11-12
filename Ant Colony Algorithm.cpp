@@ -36,9 +36,46 @@ int main()
     auto M = new Vertex("M", 45, 65);
     auto N = new Vertex("N", 125, 65);
     auto O = new Vertex("O", 195, 45);
-   /* auto U = new Vertex("U", 80, 61);
-    auto P = new Vertex("P", 10, 0);
-    auto R = new Vertex("R", 20, 80);*/
+
+    //preaparing Edges 
+    Edge::create_Edge(B, E);
+    Edge::create_Edge(B, C);
+    Edge::create_Edge(B, A);
+
+    Edge::create_Edge(E, C);
+    Edge::create_Edge(E, G);
+    Edge::create_Edge(E, I);
+    
+    Edge::create_Edge(I, G);
+    Edge::create_Edge(I, M);
+    
+    Edge::create_Edge(M, K);
+
+    Edge::create_Edge(K,J);
+    Edge::create_Edge(K,N);
+
+    Edge::create_Edge(N,O);
+    
+    Edge::create_Edge(O,L);
+
+    Edge::create_Edge(L,J);
+
+    Edge::create_Edge(J,H);
+
+    Edge::create_Edge(H,G);
+    Edge::create_Edge(H,D);
+
+    Edge::create_Edge(D,A);
+    Edge::create_Edge(D,C);
+
+    Edge::create_Edge(A,C);
+
+    Edge::create_Edge(C,F);
+
+    Edge::create_Edge(F,G);
+
+
+
 
     // z B do O
     Ant::target = O;
