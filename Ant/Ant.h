@@ -6,11 +6,12 @@
 class Vertex;
 class Ant
 {
-	std::vector<Vertex*> visited_V;	
+	Vertexes_vector visited_V;
 	std::vector<Edge*> visited_E; //raczej niepotrzebne
 	Vertex* current_Vertex;
 	double path_length;
-	std::vector<Vertex*> candidates_V;
+	Vertexes_vector candidates_V;
+	std::vector<Edge*> candidates_E;
 	
 public:
 	Ant() :current_Vertex{ nullptr }, path_length{}{}

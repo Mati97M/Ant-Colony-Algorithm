@@ -26,19 +26,35 @@ void Ant::move(const std::vector<Edge*> & edges)	//inaczej zrob - niech  mrowka 
 
 void Ant::move_to_next_V(const std::vector<Edge*>& edges, const Vertexes_vector& Vertexes)
 {
-	//chose vertex to visit - creating candidates
-	auto it_V = Vertexes.begin();
-	while (it_V != Vertexes.end())
+	if (current_Vertex != target)
 	{
-		while (std::find(visited_V.begin(), visited_V.end(), *it_V) != visited_V.end()) //jesli znaleziono dany wierzch w wekt odwiedzonych, to przypatrujemy sie nast. wierzch.
+		//chose vertex to visit - creating candidates
+		auto it_V = Vertexes.begin();
+		while (it_V != Vertexes.end())
 		{
-			it_V++;
+			while (std::find(visited_V.begin(), visited_V.end(), *it_V) != visited_V.end()) //jesli znaleziono dany wierzch w wekt odwiedzonych, to przypatrujemy sie nast. wierzch.
+			{
+				it_V++;
+			}
+			candidates_V.push_back(*it_V);
 		}
-		candidates_V.push_back(*it_V);
+		// finding matcihng edges
+		for (auto& v : candidates_V)
+		{
+			std::string temp_key = current_Vertex->get_name() + v->get_name();
+			std::string key = (Edge::Edges.find(temp_key) == Edge::Edges.end() ? temp_key = *temp_key.end() + *temp_key.begin() : temp_key);
+			candidates_E.push_back(Edge::Edges[key]);
+			candidates_E.push_back()
+		}
+		
+			//dla kazdego z kandydatow ustalamy atrakcyjnosc sciezki. Te bez feromonow beda mialy losowane wartosci
+		//ruletka - wybor lub odrzucenie wierzcholka (krawedzi do wierzcholka)
+		///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//wybor konkretnej krawedzi, mamy przeciez current_V oraz wierzcholek docelowy
+		// zobacz, edge.cpp map
+
+		//aktualizuj wierzcholek
+		//current_Vertex = ;
 	}
-	//dla kazdego z kandydatow ustalamy atrakcyjnosc sciezki. Te bez feromonow beda mialy losowane wartosci
-	//ruletka - wybor lub odrzucenie wierzcholka (krawedzi do wierzcholka)
-	///!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	//wybor konkretnej krawedzi, mamy przeciez current_V oraz wierzcholek docelowy
-	// zobacz, edge.cpp map
+
 }

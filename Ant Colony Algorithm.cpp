@@ -68,7 +68,7 @@ int main()
         //increase feromones on visited paths
         for (auto& ant : ants) { ant.put_feromone(); }
     }
-
+    //wydrukuj najlepszy wynik
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
