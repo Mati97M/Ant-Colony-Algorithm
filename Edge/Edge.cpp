@@ -1,20 +1,7 @@
 #include "Edge.h"
 #include <string>
 
-Edges_map Edge::Edges{};		//moze niech to biedzie mapa <string, Edge*>  np edges["AI"] = adres krawedzi
-
-//void Edge::create_Edges(const Vertexes_vector& vv)
-//{
-//	auto it_begin = vv.begin();
-//	auto it_current = vv.end();
-//	while (it_current != it_begin)
-//	{
-//		auto e = new Edge(*vv.end(), *(--it_current));
-//		//Edges[(*it_current)->get_name() + (*vv.end())->get_name()] = e;
-//		//Edges[(*vv.end())->get_name() + (*it_current)->get_name()] = e;
-//		//Edges.push_back(e);
-//	}
-//}
+Edges_map Edge::Edges{};		// mapa <string, Edge*>  np edges["AI"] = adres krawedzi
 
 void Edge::create_Edge(Vertex* v1, Vertex* v2) 
 {

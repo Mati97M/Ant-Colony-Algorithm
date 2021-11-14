@@ -10,7 +10,7 @@ class Ant
 	static int number;
 	int id;
 	Vertexes_vector visited_V;
-	std::vector<Edge*> visited_E; //raczej niepotrzebne
+	std::vector<Edge*> visited_E; 
 	Vertex* current_Vertex;
 	double path_length;
 	Vertexes_vector candidates_V;
@@ -27,7 +27,7 @@ public:
 	void put_feromone();
 	double get_path_length() { return path_length; }
 	void move_to_next_V();
-	//void move(const std::vector<Edge*>& edges);
+
 	static Vertex* target;
 	static Vertex* start;
 	std::string get_path_name();

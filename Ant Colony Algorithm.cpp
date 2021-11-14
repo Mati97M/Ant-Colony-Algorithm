@@ -9,15 +9,15 @@
 #include <ctime>
 
 //parameters
-constexpr int ants_num =  4 ;
-double feromone_reductor{ 0.8 };
-int iteration_num{ 50 };
+constexpr int ants_num =  2 ;
+double feromone_reductor{ 0.3 };
+int iteration_num{ 10 };
 
 
 int main()
 {
     srand(time(NULL));
-    //prepearing Vertexes
+    //preparing Vertexes
     auto A = new Vertex("A", 185, 245);
     auto B = new Vertex("B", 35, 235);
     auto C = new Vertex("C", 135, 215);
@@ -38,7 +38,7 @@ int main()
     double global_shortest_path{};
     bool first_iteration{ true };
 
-    //preaparing Edges 
+    //preparing Edges 
     Edge::create_Edge(B, E);
     Edge::create_Edge(B, C);
     Edge::create_Edge(B, A);
@@ -74,7 +74,6 @@ int main()
     Edge::create_Edge(C, F);
 
     Edge::create_Edge(F, G);
-
 
 
 
@@ -132,6 +131,7 @@ int main()
         //increase feromones on visited paths
         for (auto& ant : ants) { ant->put_feromone(); }
         std::cout << "Iteration: completed" << std::endl;
+        //realising memory
         for (const auto& ant : ants) delete ant;
     }
     //wydrukuj najlepszy wynik
@@ -157,14 +157,3 @@ int main()
     return 0;
 
 }
-
-// Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
-// Debugowanie programu: F5 lub menu Debugowanie > Rozpocznij debugowanie
-
-// Porady dotyczące rozpoczynania pracy:
-//   1. Użyj okna Eksploratora rozwiązań, aby dodać pliki i zarządzać nimi
-//   2. Użyj okna programu Team Explorer, aby nawiązać połączenie z kontrolą źródła
-//   3. Użyj okna Dane wyjściowe, aby sprawdzić dane wyjściowe kompilacji i inne komunikaty
-//   4. Użyj okna Lista błędów, aby zobaczyć błędy
-//   5. Wybierz pozycję Projekt > Dodaj nowy element, aby utworzyć nowe pliki kodu, lub wybierz pozycję Projekt > Dodaj istniejący element, aby dodać istniejące pliku kodu do projektu
-//   6. Aby w przyszłości ponownie otworzyć ten projekt, przejdź do pozycji Plik > Otwórz > Projekt i wybierz plik sln

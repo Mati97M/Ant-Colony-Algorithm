@@ -21,7 +21,6 @@ public:
 	Edge(Vertex* v1, Vertex* v2);
 private:
 	void free_Edges();
-	//static void create_Edges(const Vertexes_vector & vv);
 
 public:
 	~Edge();

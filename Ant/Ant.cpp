@@ -17,21 +17,7 @@ void Ant::put_feromone()
 	else std::cout << "Warning! path_length = 0 Can not put feromone yet!" << std::endl;
 }
 
-//void Ant::move(const std::vector<Edge*> & edges)	//inaczej zrob - niech  mrowka przemieszcza sie po wierzcholkach, ne po krawedziach
-//{
-//	//find unvisited edge
-//	int n = rand() % edges.size();	//inaczej, uzywaj ieratora po wierzcholkach
-//	auto it = edges.begin();
-//	it += n;
-//	while (std::find(visited_E.begin(), visited_E.end(), *it) != visited_E.end()) //jesli znajdzie, to trzeba jeszcze raz losowac n 
-//	{
-//		//if((*it)->)
-//		n = rand() % edges.size();
-//	}
-//	//found edge wasn`t visited, so ant goes there
-//	
-//	//funkcja celu? w kazdym razie teraz  ocena edges[n] , jej atrakcyjnosci, funkcja losujaca prog przebicia
-//}
+
 void Ant::set_current_V(Vertex* v) 
 { 
 	if (current_Vertex) current_Vertex->ants_num = current_Vertex->ants_num - 1;
@@ -45,7 +31,7 @@ void Ant::set_current_V(Vertex* v)
 
 void Ant::move_to_next_V()
 {
-	if (current_Vertex != target)  //&& !current_Vertex->neighbours.empty()  nie, bo nie da sie wtedy ich zrestartowac
+	if (current_Vertex != target) 
 	{
 		//chose vertex to visit - creating candidates
 		for (const auto& n : current_Vertex->neighbours)
