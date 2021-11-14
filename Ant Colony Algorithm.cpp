@@ -11,7 +11,7 @@
 Vertexes_vector best_solutionV;
 Vertexes_vector best_solutionE;
 //parameters
-int ants_num{ 4 };
+constexpr int ants_num =  4 ;
 
 double feromone_reductor{ 0.8 };
 int iteration_num{ 50 };
@@ -102,7 +102,16 @@ int main()
         }
         Ant::reset_target();
         //compare results
-      
+
+        double local_shortest_path{ (*ants.begin())->get_path_length()};
+        for (auto& ant : ants)
+        { 
+            if (ant->get_path_length() < local_shortest_path) 
+            {
+                local_shortest_path = ant->get_path_length();
+            }
+        }
+
         //set best solution, if was founded
 
         //reduce feromones globally
