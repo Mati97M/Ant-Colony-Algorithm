@@ -8,11 +8,8 @@
 #include <cstdlib>
 #include <ctime>
 
-Vertexes_vector best_solutionV;
-Vertexes_vector best_solutionE;
 //parameters
 constexpr int ants_num =  4 ;
-
 double feromone_reductor{ 0.8 };
 int iteration_num{ 50 };
 
@@ -36,6 +33,10 @@ int main()
     auto M = new Vertex("M", 45, 65);
     auto N = new Vertex("N", 125, 65);
     auto O = new Vertex("O", 195, 45);
+
+    std::string best_solutionV;
+    double global_shortest_path{};
+    bool first_iteration{ true };
 
     //preaparing Edges 
     Edge::create_Edge(B, E);
@@ -101,20 +102,32 @@ int main()
             }
         }
         Ant::reset_target();
-        //compare results
-
+        //find local minimum
         double local_shortest_path{ (*ants.begin())->get_path_length()};
+        Ant* bestAnt = *ants.begin();
         for (auto& ant : ants)
         { 
             if (ant->get_path_length() < local_shortest_path) 
             {
                 local_shortest_path = ant->get_path_length();
+                bestAnt = ant;
+
             }
         }
+        //compare results &  set best solution, if was founded.
+        if (first_iteration)
+        {
+            global_shortest_path = local_shortest_path;
+            first_iteration = !first_iteration;
+            best_solutionV = bestAnt->get_path_name();
+        }
+        if (local_shortest_path < global_shortest_path)
+        {
+            global_shortest_path = local_shortest_path;
+            best_solutionV = bestAnt->get_path_name();
+        }
 
-        //set best solution, if was founded
-
-        //reduce feromones globally
+    //reduce feromones globally
         Edge::reduce_feromoneG(feromone_reductor);
         //increase feromones on visited paths
         for (auto& ant : ants) { ant->put_feromone(); }
@@ -122,6 +135,7 @@ int main()
         for (const auto& ant : ants) delete ant;
     }
     //wydrukuj najlepszy wynik
+    std::cout << "Shortest found Path =  "<< best_solutionV <<" lentgth= "<< global_shortest_path<<std::endl;
     //realising memory
     delete A;
     delete B;

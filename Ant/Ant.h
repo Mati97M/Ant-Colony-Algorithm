@@ -30,5 +30,6 @@ public:
 	//void move(const std::vector<Edge*>& edges);
 	static Vertex* target;
 	static Vertex* start;
+	std::string get_path_name();
 };
 #endif // !ANT_H

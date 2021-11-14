@@ -58,10 +58,11 @@ void Ant::move_to_next_V()
 		//no candidates -> try again (cycle)
 		if (candidates_V.empty())
 		{
-			set_current_V(nullptr);
-			set_current_V(start);
 			reset_candidates();
 			reset_visited();
+			set_current_V(nullptr);
+			set_current_V(start);
+
 			std::cout << "ant "<<id<< "got lost.Tries againg" << std::endl;
 			return;
 		}
@@ -79,7 +80,7 @@ void Ant::move_to_next_V()
 		reset_candidates();
 		
 	}
-	else std::cout << "Ant "<<id << "waiting for company" << std::endl;
+	else std::cout << "Ant "<<id << " waiting for company" << std::endl;
 
 }
 
@@ -150,4 +151,11 @@ void Ant::reset_visited()
 	visited_E.shrink_to_fit();
 
 	path_length = 0.0;
+}
+
+std::string Ant::get_path_name()
+{
+	std::string path;
+	for (const auto& v : visited_V) path.append(v->get_name());
+	return path;
 }
