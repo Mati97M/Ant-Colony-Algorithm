@@ -23,7 +23,7 @@ void Edge::create_Edge(Vertex* v1, Vertex* v2)
 			v2->neighbours.push_back(v1);
 }
 
-Edge::Edge(Vertex* v1, Vertex* v2) :feromones{}, begin{ v1 }, end{ v2 }
+Edge::Edge(Vertex* v1, Vertex* v2) :feromones{1.0}, begin{ v1 }, end{ v2 }
 {
 	//point begin
 	double x_b = begin->get_x();
@@ -45,4 +45,14 @@ void Edge::reduce_feromoneG(double f)
 		e.second->reduce_feromone(f); 
 	}
 
+}
+
+Edge::~Edge()
+{
+	if (!Edges.empty())
+		free_Edges();
+}
+void Edge::free_Edges()
+{
+	for (auto& e : Edges) delete e.second;
 }

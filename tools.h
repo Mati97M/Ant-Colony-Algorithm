@@ -4,6 +4,12 @@
 #include "Vertex/Vertex.h"
 #include<iostream>
 
+
+double random()
+{
+    return static_cast<double>(rand() % 1001) / 1000.0;
+}
+
 void create_graph()
 {
 //    //prepearing Vertexes
@@ -60,7 +66,7 @@ void create_graph()
 //
 //    Edge::create_Edge(F, G);
 //    std::cout << "Graph created successully!" << std::endl;
-//}
+}
 
 #endif // !TOOLS_H
 

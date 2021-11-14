@@ -13,16 +13,18 @@ class Edge
 
 	double length;
 	double feromones;
-	Vertex* begin;	//niepotrzebne
-	Vertex* end;	//niepotrzebne
+	Vertex* begin;	
+	Vertex* end;	
 public:
 	static Edges_map Edges;
 	static void create_Edge(Vertex* v1, Vertex* v2);
 	Edge(Vertex* v1, Vertex* v2);
 private:
+	void free_Edges();
 	//static void create_Edges(const Vertexes_vector & vv);
 
 public:
+	~Edge();
 	void add_feromone(double f) { feromones += f; }
 	static void reduce_feromoneG(double f);
 	void reduce_feromone(double f) { feromones *= f; }

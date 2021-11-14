@@ -45,67 +45,94 @@ int main()
     Edge::create_Edge(E, C);
     Edge::create_Edge(E, G);
     Edge::create_Edge(E, I);
-    
+
     Edge::create_Edge(I, G);
     Edge::create_Edge(I, M);
-    
+
     Edge::create_Edge(M, K);
 
-    Edge::create_Edge(K,J);
-    Edge::create_Edge(K,N);
+    Edge::create_Edge(K, J);
+    Edge::create_Edge(K, N);
 
-    Edge::create_Edge(N,O);
-    
-    Edge::create_Edge(O,L);
+    Edge::create_Edge(N, O);
 
-    Edge::create_Edge(L,J);
+    Edge::create_Edge(O, L);
 
-    Edge::create_Edge(J,H);
+    Edge::create_Edge(L, J);
 
-    Edge::create_Edge(H,G);
-    Edge::create_Edge(H,D);
+    Edge::create_Edge(J, H);
 
-    Edge::create_Edge(D,A);
-    Edge::create_Edge(D,C);
+    Edge::create_Edge(H, G);
+    Edge::create_Edge(H, D);
 
-    Edge::create_Edge(A,C);
+    Edge::create_Edge(D, A);
+    Edge::create_Edge(D, C);
 
-    Edge::create_Edge(C,F);
+    Edge::create_Edge(A, C);
 
-    Edge::create_Edge(F,G);
+    Edge::create_Edge(C, F);
+
+    Edge::create_Edge(F, G);
 
 
 
 
     // z B do O
+    Ant::start = B;
     Ant::target = O;
     //////////////////////////////////////////////Ant colony Algorithm
     while (iteration_num--)
     {
         //creating ants
-        std::vector<Ant> ants;
+        std::vector<Ant*> ants;
         for (int i = 0; i < ants_num; i++)
         {
-            ants.push_back(Ant());
+            ants.push_back(new Ant());
         }
         //putting ants on start - B
-        for (auto& ant : ants) { ant.set_current_V(B); }
+        for (auto& ant : ants) { ant->set_current_V(Ant::start); }
 
         while (Ant::target->get_ants_num() != ants_num)
         {
             //each ant search finish & memorise, which nodes where visited
-
+            for (auto& ant : ants)
+            {
+                ant->move_to_next_V();
+            }
         }
+        Ant::reset_target();
         //compare results
-
+      
         //set best solution, if was founded
 
         //reduce feromones globally
         Edge::reduce_feromoneG(feromone_reductor);
         //increase feromones on visited paths
-        for (auto& ant : ants) { ant.put_feromone(); }
+        for (auto& ant : ants) { ant->put_feromone(); }
+        std::cout << "Iteration: completed" << std::endl;
+        for (const auto& ant : ants) delete ant;
     }
     //wydrukuj najlepszy wynik
+    //realising memory
+    delete A;
+    delete B;
+    delete C;
+    delete D;
+    delete E;
+    delete F;
+    delete G;
+    delete H;
+    delete I;
+    delete J;
+    delete K;
+    delete L;
+    delete M;
+    delete N;
+    delete O;
+ 
+
+    return 0;
+
 }
 
 // Uruchomienie programu: Ctrl + F5 lub menu Debugowanie > Uruchom bez debugowania
