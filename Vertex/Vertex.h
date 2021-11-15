@@ -1,3 +1,4 @@
+// Created by Mateusz Mieckowski & Rados³aw Mieckowski 
 #ifndef VERTEX_H
 #define VERTEX_H
 #include <string>

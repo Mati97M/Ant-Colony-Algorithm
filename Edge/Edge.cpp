@@ -1,3 +1,4 @@
+// Created by Mateusz Mieckowski & Rados³aw Mieckowski 
 #include "Edge.h"
 #include <string>
 

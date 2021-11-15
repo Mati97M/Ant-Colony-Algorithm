@@ -1,3 +1,4 @@
+// Created by Mateusz Mieckowski & Rados³aw Mieckowski 
 #ifndef EDGE_H
 #define EDGE_H
 #include "../Vertex/Vertex.h"

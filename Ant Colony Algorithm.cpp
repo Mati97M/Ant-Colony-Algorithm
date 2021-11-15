@@ -1,5 +1,5 @@
-﻿// Ant Colony Algorithm.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
-//
+﻿// Created by Mateusz Mieckowski & Radosław Mieckowski 
+// Ant Colony Algorithm.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
 
 #include <iostream>
 #include"Vertex/Vertex.h"

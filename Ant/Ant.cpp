@@ -1,3 +1,4 @@
+// Created by Mateusz Mieckowski & Rados³aw Mieckowski 
 #include "Ant.h"
 #include <iostream>
 #include "../tools.h"

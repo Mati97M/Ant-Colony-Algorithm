@@ -1,9 +1,9 @@
+// Created by Mateusz Mieckowski & Rados³aw Mieckowski 
 #ifndef TOOLS_H
 #define TOOLS_H
 #include "Edge/Edge.h"
 #include "Vertex/Vertex.h"
 #include<iostream>
-
 
 double random()
 {
